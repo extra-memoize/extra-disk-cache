@@ -744,6 +744,20 @@
     iterable-operator "^1.0.0"
     justypes "^2.0.0"
 
+"@blackglory/prelude@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@blackglory/prelude/-/prelude-0.1.1.tgz#d08bd1e2f08cae11ea5bc622ffa5320148bd8c92"
+  integrity sha512-LED+9S06HxUrn4APcC77OYanXoucaj8oe+V6TeDPxKnmNbtHGzXbho/nvq0oH3Yhr9H2P6jRfUPcdjU5dAM9Ig==
+  dependencies:
+    "@blackglory/errors" "^2.2.1"
+    "@blackglory/go" "^1.0.0"
+    "@blackglory/log" "^1.0.0"
+    "@blackglory/pass" "^1.0.0"
+    "@blackglory/types" "^1.1.0"
+    extra-lazy "^1.0.1"
+    iterable-operator "^1.0.1"
+    justypes "^2.0.0"
+
 "@blackglory/structures@^0.3.5":
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/@blackglory/structures/-/structures-0.3.5.tgz#f6af7c598e00f9c51157505d3d6560409cfa529b"
@@ -775,6 +789,14 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-1.0.1.tgz#2beb5cd0539cf3d481479d84b5f4f5861501fb28"
   integrity sha512-hymFoc//rnjIjSOCmv8Nr7Wd1zM0GQaS3TW9NaWqZqteRPsImgetjZwHU/h+TiCdAiaXf6OW4eav9/Mt3tvbKg==
+  dependencies:
+    justypes "^2.0.0"
+    lodash "^4.17.21"
+
+"@blackglory/types@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@blackglory/types/-/types-1.1.0.tgz#fa618e2289054b0d870b9e543a2b201eae81c3c0"
+  integrity sha512-bSdRnP99H53WV2PR+P9Wc52hedIZPaHX2s+/J5112vcoXHoo19brxGu6XiAc5wnf4/AZYprcUoV7fQDu5TecFw==
   dependencies:
     justypes "^2.0.0"
     lodash "^4.17.21"
@@ -2921,16 +2943,17 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-extra-disk-cache@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/extra-disk-cache/-/extra-disk-cache-0.4.3.tgz#74062f19cbb2de41f40e68094bbdba7ff4934d8c"
-  integrity sha512-DLfDilzQjlRaFryqmVRhvqyNe6+O/qqLc1tqxzh1os8T0ePbIHnq0dcBA8+NxBkK8j4PZaYmOn/HJXB6bXZYHg==
+extra-disk-cache@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/extra-disk-cache/-/extra-disk-cache-0.5.0.tgz#b35f07eac194a51ffb23ce791c986da00b0b82c8"
+  integrity sha512-QehgJ9sZP7JSj50LleCryu6zeUQo9Xtk4BiUtnrr/Vv6BlBsiJ0p1w+2NT/U+6gZkmz2IY1y7UdwjrS54NcVYw==
   dependencies:
     "@blackglory/better-sqlite3-migrations" "^0.1.9"
-    "@blackglory/types" "^1.0.0"
+    "@blackglory/prelude" "^0.1.1"
+    "@blackglory/types" "^1.0.1"
     better-sqlite3 "^7.5.0"
     extra-filesystem "^0.4.2"
-    extra-promise "^1.0.1"
+    extra-promise "^1.0.2"
     extra-timers "^0.2.5"
     level-rocksdb "^5.0.0"
     migrations-file "^0.2.2"
@@ -2954,23 +2977,23 @@ extra-generator@^0.2.16:
     "@blackglory/go" "^1.0.0"
     extra-lazy "^1.0.0"
 
-extra-lazy@^1.0.0:
+extra-lazy@^1.0.0, extra-lazy@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/extra-lazy/-/extra-lazy-1.0.1.tgz#d657be53103725bfe4471e74134fcf0d0b805a1b"
   integrity sha512-z3ze3yom4ynosHpO9q9/4c3mFGygSsWiMTfgySY/tFEIGZAGXR14s7c73BD6itMfVr27GW1xqzndWt2NwM7xnQ==
   dependencies:
     lodash "^4.17.21"
 
-extra-memoize@^0.4.8:
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/extra-memoize/-/extra-memoize-0.4.8.tgz#ce571165000ee085da8b71c34d9c0aedebf67231"
-  integrity sha512-NZj/r9lzfDYnY/S8iJz54keNvbf8fx4cwLghkqWmlbmsnx3CspQUtvKPqgY+7pLT/hwLq9mBHPx922ZzT9mBRw==
+extra-memoize@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/extra-memoize/-/extra-memoize-0.4.9.tgz#afb64f8aab0c8a07f139dfc1a0a1cea3168fe795"
+  integrity sha512-SLwPDQByEMuCA/+J1mcMRPPBwWt3iJCUEu+YtTYVEFuCjboN9b7q2ht/0QkAIbeWW7RXjQ+weydDcFCxyGFR0A==
   dependencies:
     "@blackglory/prelude" "^0.1.0"
     "@blackglory/structures" "^0.3.5"
     fast-json-stable-stringify "^2.1.0"
 
-extra-promise@^1.0.0, extra-promise@^1.0.1:
+extra-promise@^1.0.0, extra-promise@^1.0.1, extra-promise@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-1.0.2.tgz#7417d454a03d9e6854e19eb6f44009ca4372b059"
   integrity sha512-HZEh6aEWsZQ9/KKq2KjCVlsueQ+aVX3PO9z9MxcS2IWrGenMqdQ8PyLOTuEJx6qiVC60uaiYFjoiz90X+OTj6A==

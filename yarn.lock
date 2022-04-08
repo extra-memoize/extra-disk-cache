@@ -2984,13 +2984,12 @@ extra-lazy@^1.0.0, extra-lazy@^1.0.1:
   dependencies:
     lodash "^4.17.21"
 
-extra-memoize@^0.4.9:
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/extra-memoize/-/extra-memoize-0.4.9.tgz#afb64f8aab0c8a07f139dfc1a0a1cea3168fe795"
-  integrity sha512-SLwPDQByEMuCA/+J1mcMRPPBwWt3iJCUEu+YtTYVEFuCjboN9b7q2ht/0QkAIbeWW7RXjQ+weydDcFCxyGFR0A==
+extra-memoize@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/extra-memoize/-/extra-memoize-0.5.0.tgz#0cfc3ee02b67dbc7a7db2a789701ac30d4720b99"
+  integrity sha512-KfMtzq+T9N2VSB0rtGAeJgVmJXDvzaNwSN59AkV4+HcnNZdyVLMtEJPXH65OFlqT7JlBNxw40UHPctxKEFhgHg==
   dependencies:
-    "@blackglory/prelude" "^0.1.0"
-    "@blackglory/structures" "^0.3.5"
+    "@blackglory/prelude" "^0.1.1"
     fast-json-stable-stringify "^2.1.0"
 
 extra-promise@^1.0.0, extra-promise@^1.0.1, extra-promise@^1.0.2:

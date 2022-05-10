@@ -1,4 +1,4 @@
-import { IStaleWhileRevalidateAsyncCache } from 'extra-memoize'
+import { IStaleWhileRevalidateAsyncCache, State } from 'extra-memoize'
 import { DiskCache } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
@@ -12,11 +12,13 @@ export class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalid
   , private fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
   ) {}
 
-  async get(key: string): Promise<T | undefined> {
+  async get(key: string): Promise<[State.Miss] | [State.Hit, T]> {
     const value = await this.cache.getData(key)
-    if (isUndefined(value)) return undefined
-
-    return this.fromBuffer(value)
+    if (isUndefined(value)) {
+      return [State.Miss]
+    } else {
+      return [State.Hit, this.fromBuffer(value)]
+    }
   }
 
   async set(key: string, value: T): Promise<void> {

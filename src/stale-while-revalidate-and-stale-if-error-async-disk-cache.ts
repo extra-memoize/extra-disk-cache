@@ -14,23 +14,25 @@ export class StaleWhileRevalidateAndStaleIfErrorAsyncDiskCache<T> implements ISt
   ) {}
 
   async get(key: string): Promise<
-  | [State.Miss, undefined]
+  | [State.Miss]
   | [State.Hit | State.StaleWhileRevalidate | State.StaleIfError, T]
   > {
     const value = await this.cache.getData(key)
     const metadata = this.cache.getMetadata(key)
-    if (isUndefined(value) || isUndefined(metadata)) return [State.Miss, undefined]
-
-    const elapsed = Date.now() - metadata.updatedAt
-    if (elapsed <= this.timeToLive) {
-      return [State.Hit, this.fromBuffer(value)]
-    } else if (elapsed <= this.timeToLive + this.staleWhileRevalidate) {
-      return [State.StaleWhileRevalidate, this.fromBuffer(value)]
-    } else if (elapsed <= this.timeToLive + this.staleWhileRevalidate + this.staleIfError) {
-      return [State.StaleIfError, this.fromBuffer(value)]
+    if (isUndefined(value) || isUndefined(metadata)) {
+      return [State.Miss]
     } else {
-      // just in case
-      return [State.Miss, undefined]
+      const elapsed = Date.now() - metadata.updatedAt
+      if (elapsed <= this.timeToLive) {
+        return [State.Hit, this.fromBuffer(value)]
+      } else if (elapsed <= this.timeToLive + this.staleWhileRevalidate) {
+        return [State.StaleWhileRevalidate, this.fromBuffer(value)]
+      } else if (elapsed <= this.timeToLive + this.staleWhileRevalidate + this.staleIfError) {
+        return [State.StaleIfError, this.fromBuffer(value)]
+      } else {
+        // just in case
+        return [State.Miss]
+      }
     }
   }
 

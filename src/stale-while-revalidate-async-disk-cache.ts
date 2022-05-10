@@ -12,12 +12,16 @@ export class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalid
   , private fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
   ) {}
 
-  async get(key: string): Promise<[State.Miss] | [State.Hit, T]> {
+  async get(key: string): Promise<[State.Miss] | [State.Hit | State.StaleWhileRevalidate, T]> {
     const value = await this.cache.getData(key)
     if (isUndefined(value)) {
       return [State.Miss]
     } else {
-      return [State.Hit, this.fromBuffer(value)]
+      if (await this.isStaleWhileRevalidate(key)) {
+        return [State.StaleWhileRevalidate, this.fromBuffer(value)]
+      } else {
+        return [State.Hit, this.fromBuffer(value)]
+      }
     }
   }
 
@@ -31,7 +35,7 @@ export class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalid
     )
   }
 
-  async isStaleWhileRevalidate(key: string): Promise<boolean> {
+  private async isStaleWhileRevalidate(key: string): Promise<boolean> {
     const metadata = this.cache.getMetadata(key)
     if (isUndefined(metadata)) return false
 

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/extra-memoize/extra-disk-cache/compare/v0.4.1...v0.5.0) (2022-05-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* The module requires extra-disk-cache^0.6.0
+
+* upgrade dependencies ([fb3c568](https://github.com/extra-memoize/extra-disk-cache/commit/fb3c568743412a0fb7a0e41e8d0d93e63750856f))
+
 ### [0.4.1](https://github.com/extra-memoize/extra-disk-cache/compare/v0.4.0...v0.4.1) (2022-05-10)
 
 

@@ -1,7 +1,7 @@
 # @extra-memoize/extra-disk-cache
 The adapter for [extra-disk-cache].
 
-[extra-disk-cache]: https://www.npmjs.com/package/BlackGlory/extra-disk-cache
+[extra-disk-cache]: https://www.npmjs.com/package/extra-disk-cache
 
 ## Install
 ```sh

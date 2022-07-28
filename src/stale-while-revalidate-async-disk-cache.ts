@@ -1,9 +1,9 @@
-import { IStaleWhileRevalidateAsyncCache, State } from 'extra-memoize'
+import { IStaleWhileRevalidateCache, State } from 'extra-memoize'
 import { DiskCache } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
-export class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalidateAsyncCache<T> {
+export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
   constructor(
     private cache: DiskCache
   , private timeToLive: number
@@ -12,34 +12,32 @@ export class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalid
   , private fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
   ) {}
 
-  async get(key: string): Promise<[State.Miss] | [State.Hit | State.StaleWhileRevalidate, T]> {
-    const value = await this.cache.getData(key)
-    if (isUndefined(value)) {
+  get(key: string): 
+  | [State.Miss]
+  | [State.Hit | State.StaleWhileRevalidate, T] {
+    const item = this.cache.get(key)
+    if (isUndefined(item)) {
       return [State.Miss]
     } else {
-      if (await this.isStaleWhileRevalidate(key)) {
-        return [State.StaleWhileRevalidate, this.fromBuffer(value)]
+      if (this.isStaleWhileRevalidate(item.updatedAt)) {
+        return [State.StaleWhileRevalidate, this.fromBuffer(item.value)]
       } else {
-        return [State.Hit, this.fromBuffer(value)]
+        return [State.Hit, this.fromBuffer(item.value)]
       }
     }
   }
 
-  async set(key: string, value: T): Promise<void> {
-    await this.cache.set(
+  set(key: string, value: T): void {
+    this.cache.set(
       key
     , this.toBuffer(value)
     , Date.now()
-    , this.timeToLive
-    , this.staleWhileRevalidate
+    , this.timeToLive + this.staleWhileRevalidate
     )
   }
 
-  private async isStaleWhileRevalidate(key: string): Promise<boolean> {
-    const metadata = this.cache.getMetadata(key)
-    if (isUndefined(metadata)) return false
-
-    const elapsed = Date.now() - metadata.updatedAt
+  private isStaleWhileRevalidate(updatedAt: number): boolean {
+    const elapsed = Date.now() - updatedAt
     return elapsed > this.timeToLive
         && elapsed < this.timeToLive + this.staleWhileRevalidate
   }

@@ -11,22 +11,22 @@ yarn add @extra-memoize/extra-disk-cache
 ```
 
 ### API
-#### AsyncDiskCache
+#### DiskCache
 ```ts
-class AsyncDiskCache<T> implements IAsyncCache<T> {
+class DiskCache<T> implements ICache<T> {
   constructor(
-    cache: DiskCache
+    cache: ExtraDiskCache
   , toBuffer?: (value: T) => Buffer
   , fromBuffer?: (buffer: Buffer) => T
   )
 }
 ```
 
-#### StaleWhileRevalidateAsyncDiskCache
+#### StaleWhileRevalidateDiskCache
 ```ts
-class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalidateAsyncCache<T> {
+class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
   constructor(
-    cache: DiskCache
+    cache: ExtraDiskCache
   , timeToLive: number
   , staleWhileRevalidate: number
   , toBuffer?: (value: T) => Buffer
@@ -35,11 +35,11 @@ class StaleWhileRevalidateAsyncDiskCache<T> implements IStaleWhileRevalidateAsyn
 }
 ```
 
-#### StaleIfErrorAsyncDiskCache
+#### StaleIfErrorDiskCache
 ```ts
-class StaleIfErrorAsyncDiskCache<T> implements IStaleIfErrorAsyncCache<T> {
+class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
   constructor(
-    cache: DiskCache
+    cache: ExtraDiskCache
   , timeToLive: number
   , staleIfError: number
   , toBuffer?: (value: T) => Buffer
@@ -48,11 +48,11 @@ class StaleIfErrorAsyncDiskCache<T> implements IStaleIfErrorAsyncCache<T> {
 }
 ```
 
-#### StaleWhileRevalidateAndStaleIfErrorAsyncDiskCache
+#### StaleWhileRevalidateAndStaleIfErrorDiskCache
 ```ts
-class StaleWhileRevalidateAndStaleIfErrorAsyncDiskCache<T> implements IStaleWhileRevalidateAndStaleIfErrorAsyncCache<T> {
+class StaleWhileRevalidateAndStaleIfErrorDiskCache<T> implements IStaleWhileRevalidateAndStaleIfErrorCache<T> {
   constructor(
-    cache: DiskCache
+    cache: ExtratDiskCache
   , timeToLive: number
   , staleWhileRevalidate: number
   , staleIfError: number

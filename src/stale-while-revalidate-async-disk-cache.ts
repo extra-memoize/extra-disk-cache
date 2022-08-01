@@ -1,16 +1,30 @@
 import { IStaleWhileRevalidateCache, State } from 'extra-memoize'
-import { DiskCache } from 'extra-disk-cache'
+import { DiskCache, DiskCacheView } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
+  cache: DiskCacheView<string, T>
+
   constructor(
-    private cache: DiskCache
+    cache: DiskCache
   , private timeToLive: number
   , private staleWhileRevalidate: number
-  , private toBuffer: (value: T) => Buffer = defaultToBuffer
-  , private fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
-  ) {}
+  , toBuffer: (value: T) => Buffer = defaultToBuffer
+  , fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
+  ) {
+    this.cache = new DiskCacheView<string, T>(
+      cache
+    , {
+        toString: x => x
+      , fromString: x => x
+      }
+    , {
+        toBuffer
+      , fromBuffer
+      }
+    )
+  }
 
   get(key: string): 
   | [State.Miss]
@@ -20,9 +34,9 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
       return [State.Miss]
     } else {
       if (this.isStaleWhileRevalidate(item.updatedAt)) {
-        return [State.StaleWhileRevalidate, this.fromBuffer(item.value)]
+        return [State.StaleWhileRevalidate, item.value]
       } else {
-        return [State.Hit, this.fromBuffer(item.value)]
+        return [State.Hit, item.value]
       }
     }
   }
@@ -30,7 +44,7 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   set(key: string, value: T): void {
     this.cache.set(
       key
-    , this.toBuffer(value)
+    , value
     , Date.now()
     , this.timeToLive + this.staleWhileRevalidate
     )

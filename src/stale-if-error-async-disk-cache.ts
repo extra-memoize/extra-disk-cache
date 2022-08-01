@@ -1,16 +1,30 @@
 import { IStaleIfErrorCache, State } from 'extra-memoize'
-import { DiskCache } from 'extra-disk-cache'
+import { DiskCache, DiskCacheView } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
+  cache: DiskCacheView<string, T>
+
   constructor(
-    private cache: DiskCache
+    cache: DiskCache
   , private timeToLive: number
   , private staleIfError: number
-  , private toBuffer: (value: T) => Buffer = defaultToBuffer
-  , private fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
-  ) {}
+  , toBuffer: (value: T) => Buffer = defaultToBuffer
+  , fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
+  ) {
+    this.cache = new DiskCacheView<string, T>(
+      cache
+    , {
+        toString: x => x
+      , fromString: x => x
+      }
+    , {
+        toBuffer
+      , fromBuffer
+      }
+    )
+  }
 
   get(key: string):
   | [State.Miss]
@@ -21,9 +35,9 @@ export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
     } else {
       const elapsed = Date.now() - item.updatedAt
       if (elapsed <= this.timeToLive) {
-        return [State.Hit, this.fromBuffer(item.value)]
+        return [State.Hit, item.value]
       } else if (elapsed <= this.timeToLive + this.staleIfError) {
-        return [State.StaleIfError, this.fromBuffer(item.value)]
+        return [State.StaleIfError, item.value]
       } else {
         // just in case
         return [State.Miss]
@@ -34,7 +48,7 @@ export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
   set(key: string, value: T): void {
     this.cache.set(
       key
-    , this.toBuffer(value)
+    , value
     , Date.now()
     , this.timeToLive + this.staleIfError
     )

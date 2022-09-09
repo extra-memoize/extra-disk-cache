@@ -1,6 +1,6 @@
 {
   "name": "@extra-memoize/extra-disk-cache",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "",
   "files": [
     "lib"

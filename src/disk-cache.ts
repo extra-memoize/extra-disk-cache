@@ -4,7 +4,7 @@ import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class DiskCache<T> implements ICache<T> {
-  cache: DiskCacheView<string, T>
+  private cache: DiskCacheView<string, T>
 
   constructor(
     cache: ExtraDiskCache

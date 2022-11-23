@@ -4,7 +4,7 @@ import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
-  cache: DiskCacheView<string, T>
+  private cache: DiskCacheView<string, T>
 
   constructor(
     cache: DiskCache

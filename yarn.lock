@@ -564,13 +564,13 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@blackglory/better-sqlite3-migrations@^0.1.13":
-  version "0.1.15"
-  resolved "https://registry.yarnpkg.com/@blackglory/better-sqlite3-migrations/-/better-sqlite3-migrations-0.1.15.tgz#5cb30ae8ad112cbdfdc98dd1c6ae6598953fe842"
-  integrity sha512-cIHSjuxpVOGBnXODKf16JunqX0/KGGGhj5Yr9EM4CxPUPIaQ4IaT9Hf02GIXlPE5pFtbeqVdGDnaHByP6tG4WQ==
+"@blackglory/better-sqlite3-migrations@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@blackglory/better-sqlite3-migrations/-/better-sqlite3-migrations-0.1.16.tgz#793ac61eb25ab5651216c000248bd6e72a8b7daf"
+  integrity sha512-sXyemcUl61iDnBLNfwYoUr3rKggELix8NLRqIUc2rwFuy+oDdLe/eh2rtUNRzEIZYfvxgwMjT/7lBev55IOgug==
   dependencies:
-    "@blackglory/errors" "^2.2.2"
-    "@blackglory/types" "^1.2.1"
+    "@blackglory/errors" "^2.3.0"
+    "@blackglory/types" "^1.4.0"
     extra-lazy "^1.3.1"
 
 "@blackglory/errors@^2.2.0", "@blackglory/errors@^2.2.1":
@@ -659,7 +659,7 @@
   resolved "https://registry.yarnpkg.com/@blackglory/pass/-/pass-1.0.0.tgz#3b464433c0744c2dfa40ecbeaf6ab5fde1d13f83"
   integrity sha512-+R6qGmCrls+swn00S/BKbC8NNoIeG3eGOi4P6i8YOQGaBKNpu4GqufmclYqlGMKYNjl3rbye1k/OMy8eppSfjw==
 
-"@blackglory/pass@^1.0.1", "@blackglory/pass@^1.1.0":
+"@blackglory/pass@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@blackglory/pass/-/pass-1.1.0.tgz#f281b7647bf542f98ede594338742ab406f97afc"
   integrity sha512-J8epu3YVtfzP+VHJE5RR42bI0tAGBZ4nK8+0zAOfY8amw58ykWb2tUJD+N4l6SCpGZ/fQ5S6tQDl+qyNoOIhzg==
@@ -707,6 +707,18 @@
     iterable-operator "^2.2.0"
     justypes "^3.0.0"
 
+"@blackglory/structures@^0.10.14":
+  version "0.10.22"
+  resolved "https://registry.yarnpkg.com/@blackglory/structures/-/structures-0.10.22.tgz#f89cc445c4a932bf0b7d4d76c67684aeaaac0d74"
+  integrity sha512-6dXCdmg0VZlfc58msHZNSS8Hfq3nPV2HjHerr7oXq7McWF7pq7GARfkteoG/eEilYqNR3hCEdBpdAIgB4NCwBw==
+  dependencies:
+    "@blackglory/errors" "^2.2.2"
+    "@blackglory/types" "^1.3.0"
+    extra-timers "^0.2.5"
+    iterable-operator "^1.2.1"
+    justypes "^3.0.0"
+    rxjs "^7.5.5"
+
 "@blackglory/structures@^0.11.4":
   version "0.11.4"
   resolved "https://registry.yarnpkg.com/@blackglory/structures/-/structures-0.11.4.tgz#a2b5f6b1655e03f60cc509de352061bae4d1b294"
@@ -718,30 +730,6 @@
     extra-timers "^0.2.5"
     iterable-operator "^2.1.0"
     justypes "^3.0.0"
-
-"@blackglory/structures@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@blackglory/structures/-/structures-0.6.0.tgz#703bfee5a0a2c2debbbd5477e16e29f9cdf3c699"
-  integrity sha512-1Ckrma8j921+zKwrKZdpNYbbZpdnJOr11tNx/9JZLzV/LMWZhWBTcWUsikloCEFiRBEYi78QDolH5B4RLjwfLw==
-  dependencies:
-    "@blackglory/errors" "^2.2.1"
-    "@blackglory/types" "^1.1.0"
-    extra-timers "^0.2.5"
-    iterable-operator "^1.1.0"
-    justypes "^2.0.0"
-    rxjs "^7.5.5"
-
-"@blackglory/structures@^0.6.2":
-  version "0.6.10"
-  resolved "https://registry.yarnpkg.com/@blackglory/structures/-/structures-0.6.10.tgz#db8e8e72560f34a26bd1312b53fc1758e8de1846"
-  integrity sha512-cgqbwazXudtystPD8fj3UqHZEPRER5wTUZZ55fuxnqw1JpxF4LMLGpEAN2upQeDCY+KK7bE9uias+bq0se5aRQ==
-  dependencies:
-    "@blackglory/errors" "^2.2.1"
-    "@blackglory/types" "^1.2.1"
-    extra-timers "^0.2.5"
-    iterable-operator "^1.1.0"
-    justypes "^2.1.0"
-    rxjs "^7.5.5"
 
 "@blackglory/types@^1.0.0":
   version "1.0.1"
@@ -1842,10 +1830,10 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-better-sqlite3@^7.6.2:
-  version "7.6.2"
-  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-7.6.2.tgz#47cd8cad5b9573cace535f950ac321166bc31384"
-  integrity sha512-S5zIU1Hink2AH4xPsN0W43T1/AJ5jrPh7Oy07ocuW/AKYYY02GWzz9NH0nbSMn/gw6fDZ5jZ1QsHt1BXAwJ6Lg==
+better-sqlite3@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-8.0.0.tgz#aa350edf5defccd726749b8139881e5918b098b6"
+  integrity sha512-DhIPmhV+F3NBb9oGCNqNON8Cg4nP3/7NOwx412SL6JJUclYjAKmqNtbL6xBfG2RcG0uZWUS/TEHRy4AFLeq5Zg==
   dependencies:
     bindings "^1.5.0"
     prebuild-install "^7.1.0"
@@ -2909,33 +2897,23 @@ extra-compatible@^0.1.0:
     "@blackglory/prelude" "^0.1.7"
     iterable-operator "^2.1.0"
 
-extra-disk-cache@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/extra-disk-cache/-/extra-disk-cache-0.8.4.tgz#b8722c2f544e9edda2f343dc657b2016f5ba00e7"
-  integrity sha512-app2jLQ7/eFvRv+8PZziaONWVpuk200FOOFUS3TroCJx4PDkxA6qiHFdL3ULD2RJ6U1rgYJmBG0W5aFW+QUHCg==
+extra-disk-cache@^0.8.7:
+  version "0.8.7"
+  resolved "https://registry.yarnpkg.com/extra-disk-cache/-/extra-disk-cache-0.8.7.tgz#bf6ade720bde3113f5affb933bda42aac6f77645"
+  integrity sha512-4gWDZjHnP6fwwL41kT+5DWD/PXZT7jm3ebZ1mTyTXYDY6SZSxThza6+hQgpXeb8Uwg4LN7aM6AqzS1302dTkJA==
   dependencies:
-    "@blackglory/better-sqlite3-migrations" "^0.1.13"
-    "@blackglory/prelude" "^0.1.3"
-    "@blackglory/types" "^1.2.1"
-    better-sqlite3 "^7.6.2"
-    extra-filesystem "^0.4.5"
+    "@blackglory/better-sqlite3-migrations" "^0.1.16"
+    "@blackglory/prelude" "^0.1.8"
+    "@blackglory/types" "^1.4.0"
+    better-sqlite3 "^8.0.0"
+    extra-filesystem "^0.4.7"
     extra-lazy "^1.3.1"
-    extra-promise "^2.4.1"
+    extra-promise "^4.3.0"
     extra-timers "^0.2.5"
-    iterable-operator "^1.2.0"
-    migrations-file "^0.2.4"
+    iterable-operator "^2.5.0"
+    migrations-file "^0.2.5"
 
-extra-filesystem@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/extra-filesystem/-/extra-filesystem-0.4.5.tgz#179c74b72cf3a964d926007cf1ed094550b7d10f"
-  integrity sha512-5XYNFqgDBVNI+e95hO1CPki8qD94gJHATEuE5AVYulRRauXAQcj37w3MoiHkTAkxZdDRHBQMJcGvL1NnfAWSCQ==
-  dependencies:
-    "@blackglory/pass" "^1.0.0"
-    extra-promise "^2.2.0"
-    fs-extra "^10.1.0"
-    tmp-promise "^3.0.3"
-
-extra-filesystem@^0.4.6:
+extra-filesystem@^0.4.6, extra-filesystem@^0.4.7:
   version "0.4.7"
   resolved "https://registry.yarnpkg.com/extra-filesystem/-/extra-filesystem-0.4.7.tgz#7cfe6a17fa9e1c6f01a9fea14de1d53a652ecf47"
   integrity sha512-LRVPiy1oPtRk42pWjEjVPCIZGQk0E2FDxIkQMKLn2rkJD1JG2ESB3pQEek4lvWq5R8vtXP8tsJe9d1SJWtG35g==
@@ -2953,15 +2931,6 @@ extra-fsm@^0.1.1:
     "@blackglory/errors" "^2.2.3"
     "@blackglory/types" "^1.3.0"
     rxjs "^7.5.5"
-
-extra-generator@^0.2.16:
-  version "0.2.16"
-  resolved "https://registry.yarnpkg.com/extra-generator/-/extra-generator-0.2.16.tgz#8b1478cc4ad7e181254407980d27e97e3c012b71"
-  integrity sha512-BDMFh/E9vdu8rUMug2Yi6oq7IqjIeCOboeJMuyPr2m/d61ehel6lSOPy6hEIG5X+4o7AHkkG8qrryyqg7G/o4Q==
-  dependencies:
-    "@blackglory/errors" "^2.2.1"
-    "@blackglory/go" "^1.0.0"
-    extra-lazy "^1.0.0"
 
 extra-generator@^0.2.17:
   version "0.2.17"
@@ -3004,37 +2973,21 @@ extra-memoize@^0.9.1:
     "@blackglory/prelude" "^0.1.3"
     extra-json-stable-stringify "^0.1.1"
 
-extra-promise@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-2.3.0.tgz#d531bfa3dd488550737b2f0892769df23f50f070"
-  integrity sha512-NjElMNLTlCALrye48lhpFbbeaIphY3bU6V44d3mS7VheZj/FPn8xBV7C66wUibd3zm4PCGhUxIoy/KgYSC+nOw==
-  dependencies:
-    "@blackglory/errors" "^2.2.1"
-    "@blackglory/go" "^1.1.1"
-    "@blackglory/pass" "^1.0.0"
-    "@blackglory/structures" "^0.6.0"
-    "@blackglory/types" "^1.1.0"
-    extra-generator "^0.2.16"
-    fast-json-stable-stringify "^2.1.0"
-    iterable-operator "^1.1.0"
-    justypes "^2.0.0"
-    lodash "^4.17.21"
-    return-style "^1.0.0"
-
-extra-promise@^2.4.0, extra-promise@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-2.4.1.tgz#76102bfa12c906b8bc963683371115e48097e48c"
-  integrity sha512-ZP7KxLeqBXOELttWTpxrn50JRId8GlTytgXKo9EhX68oxmGCUd06vyEM/Gxhg8olxc/WWphaZo6m4WQ8DgNMoQ==
+extra-promise@^3.2.1:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/extra-promise/-/extra-promise-3.2.2.tgz#9f1c685afcc01ec9ba53df2ac624a442445a69af"
+  integrity sha512-WbpSVgEHPDX8SPiIcOKcjzlvUouM9RhQyzU6qkDVrMF/dl3x4PE4RRD5XEo27Nv8Z+oxoCuSDhLB0RPfJiFXow==
   dependencies:
     "@blackglory/errors" "^2.2.2"
     "@blackglory/go" "^1.1.2"
-    "@blackglory/pass" "^1.0.1"
-    "@blackglory/structures" "^0.6.2"
-    "@blackglory/types" "^1.2.1"
+    "@blackglory/pass" "^1.1.0"
+    "@blackglory/structures" "^0.10.14"
+    "@blackglory/types" "^1.3.0"
     extra-generator "^0.2.17"
-    fast-json-stable-stringify "^2.1.0"
-    iterable-operator "^1.2.0"
-    justypes "^2.0.1"
+    extra-json-stable-stringify "^0.1.1"
+    hotypes "^0.5.0"
+    iterable-operator "^1.2.1"
+    justypes "^3.0.0"
     lodash "^4.17.21"
     return-style "^1.0.0"
 
@@ -3061,6 +3014,11 @@ extra-rand@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/extra-rand/-/extra-rand-0.1.1.tgz#e75e71ec96eb2f9b47d2a3c6513b3fb042f05a45"
   integrity sha512-sDpJWzuKa1bTrVVG3dkCiNMt93NanphQIWhW4tUS9PDiA0KTZ+fzyS4Idw+7/lH5ZzxtOiHEJEnBWSN4gi8gyA==
+
+extra-sort@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/extra-sort/-/extra-sort-0.1.1.tgz#b2ff7295ea252344baa2ce916c75e717cc1a9217"
+  integrity sha512-shazpfR2gVn3g1LNHDRWEoJwN5V64XdWpmZK2OvI7hLfH4aHeXqglitr8EW6saQG8ZevuynK2kEwyJqlpVDPeQ==
 
 extra-stream@^0.1.6:
   version "0.1.6"
@@ -4006,7 +3964,7 @@ iterable-operator@^1.1.0:
     "@blackglory/go" "^1.0.0"
     "@blackglory/types" "^1.1.0"
 
-iterable-operator@^1.2.0:
+iterable-operator@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/iterable-operator/-/iterable-operator-1.2.1.tgz#f24be5929a571bac6c51c2dff9f0fe535fa4bf54"
   integrity sha512-wxW7d467ZY9OKWDAPQTdR7zTyQgEVt7k4VLAZ/Y+x5lnen023oFbo1QfxMMNw+PZAhfETjRyzPOGmxBg5vS7bw==
@@ -4016,7 +3974,7 @@ iterable-operator@^1.2.0:
     "@blackglory/types" "^1.2.1"
     justypes "^2.2.0"
 
-iterable-operator@^2.1.0, iterable-operator@^2.2.0, iterable-operator@^2.3.0:
+iterable-operator@^2.1.0, iterable-operator@^2.2.0, iterable-operator@^2.3.0, iterable-operator@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/iterable-operator/-/iterable-operator-2.5.0.tgz#b0221a85973900ef1b76dd5b83f3c4d9cab0162c"
   integrity sha512-FxN4lVKtQqz3p4o8MhSVkCBS6PjBgqvJBeWxNCx9xiWLQgtlwV7qOK4aE3eZot+79JVCP55OmrycKdSj+YWj1A==
@@ -4479,7 +4437,7 @@ justypes@^2.0.0:
   resolved "https://registry.yarnpkg.com/justypes/-/justypes-2.0.0.tgz#e1a09c8c99e08a54ac3a48bb97cb259d5082f907"
   integrity sha512-WzP+uveN67uQE9RsctKxqJrfBPv3aGyKnUasxaPCdXQM1voWtMObWHzpns4PjNoDFw0EvzLVoTShKn+ihpeRTA==
 
-justypes@^2.0.1, justypes@^2.1.0, justypes@^2.2.0:
+justypes@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/justypes/-/justypes-2.2.0.tgz#a0389bb8c554fdcd0ffde9ef2ed00a729f76a737"
   integrity sha512-jm7hyDCqgZ67JXtrLC3ZODiqdN+xsXIMKiNl/40xt7DjSFUMcVVPIIgmDbJ1IOsfu3i/lKLGa0zA+YcIcOMxoA==
@@ -4783,12 +4741,13 @@ micromatch@^4.0.4:
     braces "^3.0.1"
     picomatch "^2.2.3"
 
-migrations-file@^0.2.4:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/migrations-file/-/migrations-file-0.2.4.tgz#fe31454cd68af2e537de45e008a386f8017fa4d3"
-  integrity sha512-587NjMH6tRPbb7fNNxNGclmmYq1Prc2jdfs+Pwm+6IjmQe0+PGpTfrmYjl/ZruRNqZlzoiPJp4bMuYjZJm7d+A==
+migrations-file@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/migrations-file/-/migrations-file-0.2.5.tgz#ff698fe551b31ee28dccc413b1d48b5f4c3cff76"
+  integrity sha512-lbLlVG+ZGvI1oCEC5NSr0lTN3/cG7UMpWdccq6LntA76tLFfkAQAG9vhmbLHUJ1uG/gE5/eNN6z97hh1RgBkQw==
   dependencies:
-    extra-promise "^2.4.0"
+    extra-promise "^3.2.1"
+    extra-sort "^0.1.1"
 
 mimic-fn@^2.1.0:
   version "2.1.0"

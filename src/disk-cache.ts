@@ -1,28 +1,9 @@
 import { ICache, State } from 'extra-memoize'
-import { DiskCache as ExtraDiskCache, DiskCacheView } from 'extra-disk-cache'
+import { DiskCacheView } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
-import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class DiskCache<T> implements ICache<T> {
-  private view: DiskCacheView<string, T>
-
-  constructor(
-    cache: ExtraDiskCache
-  , toBuffer: (value: T) => Buffer = defaultToBuffer
-  , fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
-  ) {
-    this.view = new DiskCacheView<string, T>(
-      cache
-    , {
-        toString: x => x
-      , fromString: x => x
-      }
-    , {
-        toBuffer
-      , fromBuffer
-      }
-    )
-  }
+  constructor(private view: DiskCacheView<string, T>) {}
 
   get(key: string):
   | [State.Miss]

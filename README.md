@@ -14,11 +14,7 @@ yarn add @extra-memoize/extra-disk-cache
 #### DiskCache
 ```ts
 class DiskCache<T> implements ICache<T> {
-  constructor(
-    cache: ExtraDiskCache
-  , toBuffer?: (value: T) => Buffer
-  , fromBuffer?: (buffer: Buffer) => T
-  )
+  constructor(view: DiskCacheView<string, T>)
 }
 ```
 
@@ -26,11 +22,9 @@ class DiskCache<T> implements ICache<T> {
 ```ts
 class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
   constructor(
-    cache: ExtraDiskCache
+    view: DiskCacheView<string, T>
   , timeToLive: number
   , staleWhileRevalidate: number
-  , toBuffer?: (value: T) => Buffer
-  , fromBuffer?: (buffer: Buffer) => T
   )
 }
 ```
@@ -39,11 +33,9 @@ class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> 
 ```ts
 class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
   constructor(
-    cache: ExtraDiskCache
+    view: DiskCacheView<string, T>
   , timeToLive: number
   , staleIfError: number
-  , toBuffer?: (value: T) => Buffer
-  , fromBuffer?: (buffer: Buffer) => T
   )
 }
 ```
@@ -52,12 +44,10 @@ class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
 ```ts
 class StaleWhileRevalidateAndStaleIfErrorDiskCache<T> implements IStaleWhileRevalidateAndStaleIfErrorCache<T> {
   constructor(
-    cache: ExtratDiskCache
+    view: DiskCacheView<string, T>
   , timeToLive: number
   , staleWhileRevalidate: number
   , staleIfError: number
-  , toBuffer?: (value: T) => Buffer
-  , fromBuffer?: (buffer: Buffer) => T
   )
 }
 ```

@@ -1,30 +1,13 @@
 import { IStaleWhileRevalidateCache, State } from 'extra-memoize'
-import { DiskCache, DiskCacheView } from 'extra-disk-cache'
+import { DiskCacheView } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
-import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
-  private view: DiskCacheView<string, T>
-
   constructor(
-    cache: DiskCache
+    private view: DiskCacheView<string, T>
   , private timeToLive: number
   , private staleWhileRevalidate: number
-  , toBuffer: (value: T) => Buffer = defaultToBuffer
-  , fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
-  ) {
-    this.view = new DiskCacheView<string, T>(
-      cache
-    , {
-        toString: x => x
-      , fromString: x => x
-      }
-    , {
-        toBuffer
-      , fromBuffer
-      }
-    )
-  }
+  ) {}
 
   get(key: string): 
   | [State.Miss]

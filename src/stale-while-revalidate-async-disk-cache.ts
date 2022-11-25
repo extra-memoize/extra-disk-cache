@@ -4,7 +4,7 @@ import { isUndefined } from '@blackglory/prelude'
 import { defaultFromBuffer, defaultToBuffer } from './utils'
 
 export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCache<T> {
-  private cache: DiskCacheView<string, T>
+  private view: DiskCacheView<string, T>
 
   constructor(
     cache: DiskCache
@@ -13,7 +13,7 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   , toBuffer: (value: T) => Buffer = defaultToBuffer
   , fromBuffer: (buffer: Buffer) => T = defaultFromBuffer
   ) {
-    this.cache = new DiskCacheView<string, T>(
+    this.view = new DiskCacheView<string, T>(
       cache
     , {
         toString: x => x
@@ -29,7 +29,7 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   get(key: string): 
   | [State.Miss]
   | [State.Hit | State.StaleWhileRevalidate, T] {
-    const item = this.cache.get(key)
+    const item = this.view.get(key)
     if (isUndefined(item)) {
       return [State.Miss]
     } else {
@@ -42,7 +42,7 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   }
 
   set(key: string, value: T): void {
-    this.cache.set(
+    this.view.set(
       key
     , value
     , Date.now()

@@ -12,7 +12,7 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   get(key: string): 
   | [State.Miss]
   | [State.Hit | State.StaleWhileRevalidate, T] {
-    const item = this.view.get(key)
+    const item = this.view.getWithMetadata(key)
     if (isUndefined(item)) {
       return [State.Miss]
     } else {
@@ -28,7 +28,6 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
     this.view.set(
       key
     , value
-    , Date.now()
     , this.timeToLive + this.staleWhileRevalidate
     )
   }

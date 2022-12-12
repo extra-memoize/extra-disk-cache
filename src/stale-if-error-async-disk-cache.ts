@@ -12,7 +12,7 @@ export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
   get(key: string):
   | [State.Miss]
   | [State.Hit | State.StaleIfError, T] {
-    const item = this.view.get(key)
+    const item = this.view.getWithMetadata(key)
     if (isUndefined(item)) {
       return [State.Miss]
     } else {
@@ -32,7 +32,6 @@ export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
     this.view.set(
       key
     , value
-    , Date.now()
     , this.timeToLive + this.staleIfError
     )
   }

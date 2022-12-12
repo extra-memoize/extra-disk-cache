@@ -8,7 +8,7 @@ export class DiskCache<T> implements ICache<T> {
   get(key: string):
   | [State.Miss]
   | [State.Hit, T] {
-    const item = this.view.get(key)
+    const item = this.view.getWithMetadata(key)
     if (isUndefined(item)) {
       return [State.Miss]
     } else {

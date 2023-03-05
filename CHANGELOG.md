@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.2](https://github.com/extra-memoize/extra-disk-cache/compare/v0.8.1...v0.8.2) (2023-03-05)
+
+
+### Bug Fixes
+
+* time to live of `DiskCache` ([1ba9001](https://github.com/extra-memoize/extra-disk-cache/commit/1ba900178497744d3450611da84757dc401dcd43))
+
 ### [0.8.1](https://github.com/extra-memoize/extra-disk-cache/compare/v0.8.0...v0.8.1) (2022-12-21)
 
 ## [0.8.0](https://github.com/extra-memoize/extra-disk-cache/compare/v0.7.0...v0.8.0) (2022-12-12)

@@ -14,7 +14,10 @@ yarn add @extra-memoize/extra-disk-cache
 #### DiskCache
 ```ts
 class DiskCache<T> implements ICache<T> {
-  constructor(view: DiskCacheView<string, T>)
+  constructor(
+    view: DiskCacheView<string, T>
+  , timeToLive?: number
+  )
 }
 ```
 

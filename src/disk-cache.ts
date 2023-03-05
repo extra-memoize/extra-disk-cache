@@ -3,7 +3,10 @@ import { DiskCacheView } from 'extra-disk-cache'
 import { isUndefined } from '@blackglory/prelude'
 
 export class DiskCache<T> implements ICache<T> {
-  constructor(private view: DiskCacheView<string, T>) {}
+  constructor(
+    private view: DiskCacheView<string, T>
+  , private timeToLive?: number
+  ) {}
 
   get(key: string):
   | [State.Miss]
@@ -17,6 +20,6 @@ export class DiskCache<T> implements ICache<T> {
   }
 
   set(key: string, value: T): void {
-    this.view.set(key, value, Date.now())
+    this.view.set(key, value, this.timeToLive)
   }
 }

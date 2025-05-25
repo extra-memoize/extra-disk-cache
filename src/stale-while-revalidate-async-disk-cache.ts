@@ -33,8 +33,8 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
   }
 
   private isStaleWhileRevalidate(updatedAt: number): boolean {
-    const elapsed = Date.now() - updatedAt
-    return elapsed > this.timeToLive
-        && elapsed < this.timeToLive + this.staleWhileRevalidate
+    const timestamp = Date.now()
+    return updatedAt + this.timeToLive <= timestamp
+        && updatedAt + this.timeToLive + this.staleWhileRevalidate > timestamp
   }
 }

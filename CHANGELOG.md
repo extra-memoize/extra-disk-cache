@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/extra-memoize/extra-disk-cache/compare/v0.8.4...v0.9.0) (2025-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* - CommonJS => ESM
+- It requires Node.js v22
+
+### Features
+
+* add support for `extra-memoize^0.10.0` ([7c2984e](https://github.com/extra-memoize/extra-disk-cache/commit/7c2984e10f6d87f97867449594aa69545110ec46))
+
 ### [0.8.4](https://github.com/extra-memoize/extra-disk-cache/compare/v0.8.3...v0.8.4) (2025-05-25)
 
 

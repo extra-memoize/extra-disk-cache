@@ -18,11 +18,26 @@ export class StaleWhileRevalidateAndStaleIfErrorDiskCache<T> implements IStaleWh
       return [State.Miss]
     } else {
       const timestamp = Date.now()
-      if (item.updatedAt + this.timeToLive > timestamp) {
+      if (
+        item.updatedAt
+      + this.timeToLive
+      > timestamp
+      ) {
         return [State.Hit, item.value]
-      } else if (item.updatedAt + this.timeToLive + this.staleWhileRevalidate > timestamp) {
+      } else if (
+        item.updatedAt
+      + this.timeToLive
+      + this.staleWhileRevalidate
+      > timestamp
+      ) {
         return [State.StaleWhileRevalidate, item.value]
-      } else if (item.updatedAt+ this.timeToLive + this.staleWhileRevalidate + this.staleIfError > timestamp) {
+      } else if (
+        item.updatedAt
+      + this.timeToLive
+      + this.staleWhileRevalidate
+      + this.staleIfError
+      > timestamp
+      ) {
         return [State.StaleIfError, item.value]
       } else {
         // just in case

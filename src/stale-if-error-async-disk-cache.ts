@@ -17,9 +17,18 @@ export class StaleIfErrorDiskCache<T> implements IStaleIfErrorCache<T> {
       return [State.Miss]
     } else {
       const timestamp = Date.now()
-      if (item.updatedAt + this.timeToLive > timestamp) {
+      if (
+        item.updatedAt
+      + this.timeToLive
+      > timestamp
+      ) {
         return [State.Hit, item.value]
-      } else if (item.updatedAt + this.timeToLive + this.staleIfError > timestamp) {
+      } else if (
+        item.updatedAt
+      + this.timeToLive
+      + this.staleIfError
+      > timestamp
+      ) {
         return [State.StaleIfError, item.value]
       } else {
         // just in case

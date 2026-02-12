@@ -16,10 +16,13 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
     if (isUndefined(item)) {
       return [State.Miss]
     } else {
-      if (this.isStaleWhileRevalidate(item.updatedAt)) {
+      const timestamp = Date.now()
+      if (item.updatedAt + this.timeToLive > timestamp) {
+        return [State.Hit, item.value]
+      } else if (item.updatedAt + this.timeToLive + this.staleWhileRevalidate) {
         return [State.StaleWhileRevalidate, item.value]
       } else {
-        return [State.Hit, item.value]
+        return [State.Miss]
       }
     }
   }
@@ -30,11 +33,5 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
     , value
     , this.timeToLive + this.staleWhileRevalidate
     )
-  }
-
-  private isStaleWhileRevalidate(updatedAt: number): boolean {
-    const timestamp = Date.now()
-    return updatedAt + this.timeToLive <= timestamp
-        && updatedAt + this.timeToLive + this.staleWhileRevalidate > timestamp
   }
 }

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/extra-memoize/extra-disk-cache/compare/v0.9.0...v0.9.1) (2026-02-12)
+
+
+### Features
+
+* improve conditional statements ([dc9744f](https://github.com/extra-memoize/extra-disk-cache/commit/dc9744fea0fbcba15471190d2183d12381c3e5c8))
+
 ## [0.9.0](https://github.com/extra-memoize/extra-disk-cache/compare/v0.8.4...v0.9.0) (2025-07-04)
 
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.2](https://github.com/extra-memoize/extra-disk-cache/compare/v0.9.1...v0.9.2) (2026-02-12)
+
+
+### Bug Fixes
+
+* **stale-while-revalidate-async-disk-cache:** conditional statements ([086c86f](https://github.com/extra-memoize/extra-disk-cache/commit/086c86fb3d765b25541469d0cbfa581a53944919))
+
 ### [0.9.1](https://github.com/extra-memoize/extra-disk-cache/compare/v0.9.0...v0.9.1) (2026-02-12)
 
 

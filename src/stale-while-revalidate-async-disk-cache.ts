@@ -17,9 +17,18 @@ export class StaleWhileRevalidateDiskCache<T> implements IStaleWhileRevalidateCa
       return [State.Miss]
     } else {
       const timestamp = Date.now()
-      if (item.updatedAt + this.timeToLive > timestamp) {
+      if (
+        item.updatedAt
+      + this.timeToLive
+      > timestamp
+      ) {
         return [State.Hit, item.value]
-      } else if (item.updatedAt + this.timeToLive + this.staleWhileRevalidate) {
+      } else if (
+        item.updatedAt
+      + this.timeToLive
+      + this.staleWhileRevalidate
+      > timestamp
+      ) {
         return [State.StaleWhileRevalidate, item.value]
       } else {
         return [State.Miss]
